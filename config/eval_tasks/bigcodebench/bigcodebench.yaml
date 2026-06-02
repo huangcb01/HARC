@@ -1,0 +1,28 @@
+task: bigcodebench
+dataset_path: bigcode/bigcodebench
+dataset_name: null
+test_split: v0.1.4
+unsafe_code: true
+doc_to_text: "Please provide a self-contained Python script that solves the following problem in a markdown code block:\n```python\n{{ complete_prompt }}\n```\n"
+doc_to_target: "{{test}}"
+target_delimiter: ""
+gen_prefix: "Below is a Python script with a self-contained function that solves the problem and passes corresponding tests:\n```python"
+output_type: generate_until
+num_fewshot: 0
+generation_kwargs:
+  max_gen_toks: 2048
+  do_sample: false
+  temperature: 0
+  until: []
+repeats: 1
+num_fewshot: 0
+filter_list:
+  - name: "extract_code"
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.extract_code
+process_results: !function utils.process_results
+metric_list:
+  - metric: pass
+    aggregation: mean
+    higher_is_better: true

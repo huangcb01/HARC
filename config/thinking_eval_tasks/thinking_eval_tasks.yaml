@@ -1,0 +1,9 @@
+group: thinking_eval_tasks
+task:
+  - 1thinking_gsm8k
+  - 2thinking_math500
+  - 3thinking_humaneval_plus
+  - 4thinking_mbpp_plus
+  - 5thinking_gpqa_diamond
+metadata:
+  version: 1.0

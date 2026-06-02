@@ -1,0 +1,18 @@
+group: mathbench
+task:
+  - mathbench_arithmetic
+  - mathbench_primary_en
+  - mathbench_primary_knowledge_en
+  - mathbench_middle_en
+  - mathbench_middle_knowledge_en
+  - mathbench_high_en
+  - mathbench_high_knowledge_en
+  - mathbench_college_en
+  - mathbench_college_knowledge_en
+aggregate_metric_list:
+  - aggregation: mean
+    metric: exact_match
+    weight_by_size: false
+    filter_list: custom-extract
+metadata:
+  version: 1.0

@@ -1,0 +1,27 @@
+task: 4thinking_mbpp_plus
+dataset_path: evalplus/mbppplus
+dataset_name: null
+test_split: test
+unsafe_code: true
+doc_to_text: "{{prompt if prompt is defined else text}} Your code should satisfy the following assertion:\n{{test_list[0]}}"
+doc_to_target: "{{test_list[0]}}"
+target_delimiter: ""
+output_type: generate_until
+num_fewshot: 0
+generation_kwargs:
+  max_gen_toks: 1024
+  do_sample: false
+  temperature: 0
+  until: []
+repeats: 1
+num_fewshot: 0
+filter_list:
+  - name: "extract_code"
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.mbpp_build_predictions
+metric_list:
+  - metric: !function utils.pass_at_k
+    aggregation: mean
+    higher_is_better: true
+    k: [1]

@@ -1,0 +1,23 @@
+group: 6thinking_mmlu_pro
+task:
+  - thinking_mmlu_pro_biology
+  - thinking_mmlu_pro_business
+  - thinking_mmlu_pro_chemistry
+  - thinking_mmlu_pro_computer_science
+  - thinking_mmlu_pro_economics
+  - thinking_mmlu_pro_engineering
+  - thinking_mmlu_pro_health
+  - thinking_mmlu_pro_history
+  - thinking_mmlu_pro_law
+  - thinking_mmlu_pro_math
+  - thinking_mmlu_pro_other
+  - thinking_mmlu_pro_philosophy
+  - thinking_mmlu_pro_physics
+  - thinking_mmlu_pro_psychology
+aggregate_metric_list:
+  - aggregation: mean
+    metric: exact_match
+    weight_by_size: true
+    filter_list: custom-extract
+metadata:
+  version: 2.0

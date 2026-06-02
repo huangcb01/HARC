@@ -1,0 +1,19 @@
+models:
+  - model: output/OLMoE-1B-7B-0125/math/full_bs-32_lr-2e-5-linear_epochs-2_liger_z2
+    parameters:
+      density: 0.2
+      weight: 0.6
+  - model: output/OLMoE-1B-7B-0125/code/full_bs-32_lr-2e-5-linear_epochs-2_liger_z2
+    parameters:
+      density: 0.2
+      weight: .4
+merge_method: ties
+base_model: models/allenai/OLMoE-1B-7B-0125
+parameters:
+  normalize: true
+  int8_mask: true
+dtype: bfloat16
+tokenizer:
+  source: output/OLMoE-1B-7B-0125/math/full_bs-32_lr-2e-5-linear_epochs-2_liger_z2
+chat_template: auto
+

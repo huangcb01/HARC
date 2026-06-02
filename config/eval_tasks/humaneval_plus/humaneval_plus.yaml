@@ -1,0 +1,26 @@
+task: humaneval_plus
+dataset_path: evalplus/humanevalplus
+test_split: test
+unsafe_code: true
+doc_to_text: "Write a solution to the following problem and make sure that it passes the tests:\n```python\n{{ prompt }}\n```\n "
+doc_to_target: "{{test}}\ncheck({{entry_point}})"
+gen_prefix: "Here is a Python solution for the problem:\n\n```python\n"
+output_type: generate_until
+num_fewshot: 0
+generation_kwargs:
+  max_gen_toks: 1024
+  do_sample: true
+  temperature: 0.1
+  until: []
+repeats: 4
+num_fewshot: 0
+filter_list:
+  - name: "extract_code"
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.humaneval_build_predictions
+metric_list:
+  - metric: !function utils.pass_at_k
+    aggregation: mean
+    higher_is_better: true
+    k: [1]

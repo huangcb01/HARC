@@ -1,0 +1,8 @@
+include: "_choice_yaml"
+task: "mathbench_middle_en"
+description: "The following is a multiple-choice math question. Think step by step and then finish your answer with \"the answer is (X)\" where X is the correct letter choice.\n"
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: config/eval_tasks/mathbench/data/middle/single_choice_en.jsonl
+test_split: test

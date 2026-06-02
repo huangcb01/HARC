@@ -1,0 +1,18 @@
+group: belebele
+task:
+  - belebele_spa_Latn      # Spanish 西班牙语
+  - belebele_fra_Latn      # French 法语
+  - belebele_deu_Latn      # German 德语
+  - belebele_rus_Cyrl      # Russian 俄语
+  - belebele_zho_Hans      # Chinese (Simplified) 中文（简体）
+  - belebele_jpn_Jpan      # Japanese 日语
+  - belebele_tha_Thai      # Thai 泰语
+  - belebele_swh_Latn      # Swahili 斯瓦希里语
+  - belebele_ben_Beng      # Bengali (Bengali script) 孟加拉语（孟加拉文）
+  - belebele_tel_Telu      # Telugu 泰卢固语
+aggregate_metric_list:
+  - aggregation: mean
+    metric: acc
+    weight_by_size: true
+metadata:
+  version: 0.1

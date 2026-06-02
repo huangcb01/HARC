@@ -1,0 +1,29 @@
+tag:
+  - math_word_problems
+task: 2thinking_math500
+dataset_path: HuggingFaceH4/MATH-500
+dataset_kwargs:
+  trust_remote_code: true
+output_type: generate_until
+test_split: test
+doc_to_text: "{{problem}}"
+doc_to_target: "{{answer}}"
+generation_kwargs:
+  max_gen_toks: 1024
+  do_sample: false
+  temperature: 0
+  until: []
+repeats: 1
+num_fewshot: 0
+filter_list:
+  - name: extract_answers
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.math_parse
+metric_list:
+  - metric: !function utils.math_verify
+    aggregation: mean
+    higher_is_better: true
+num_fewshot: 0
+metadata:
+  version: 2.0

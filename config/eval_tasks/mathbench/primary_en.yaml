@@ -1,0 +1,7 @@
+include: "_cloze_yaml"
+task: "mathbench_primary_en"
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: config/eval_tasks/mathbench/data/primary/cloze_en.jsonl
+test_split: test

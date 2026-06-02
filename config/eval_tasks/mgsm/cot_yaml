@@ -1,0 +1,20 @@
+# This file will be included in the generated language-specific task configs.
+# It doesn't have a yaml file extension as it is not meant to be imported directly
+# by the harness.
+tag: mgsm_cot_native
+dataset_path: /mnt/dolphinfs/ssd_pool/docker/user/hadoop-aipnlp/FMG/huangcanbin02/repos/mgsm
+dataset_name: null  # Overridden by language-specific config.
+output_type: generate_until
+training_split: train
+test_split: test
+# target_delimiter: ""
+generation_kwargs:
+  max_gen_toks: 1024
+  do_sample: false
+  temperature: 0
+  until: []
+# target_delimiter: " "
+repeats: 1
+num_fewshot: 0
+metadata:
+  version: 4.0

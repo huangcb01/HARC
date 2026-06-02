@@ -1,0 +1,19 @@
+models:
+  - model: /mnt/hdfs/user/hadoop-aipnlp/FMG/huangcanbin02/output/moe-merge-new/OLMoE-1B-7B-0125/math/full_bs-32_lr-2e-5-linear_epochs-2_liger_z2_packing
+    parameters:
+      density: 0.6
+      weight: 0.5
+  - model: /mnt/hdfs/user/hadoop-aipnlp/FMG/huangcanbin02/output/moe-merge-new/OLMoE-1B-7B-0125/code/full_bs-32_lr-2e-5-linear_epochs-2_liger_z2_packing
+    parameters:
+      density: 0.6
+      weight: 0.5
+merge_method: dare_linear
+base_model: /mnt/hdfs/user/hadoop-aipnlp/FMG/huangcanbin02/models/allenai/OLMoE-1B-7B-0125
+parameters:
+  normalize: true
+  int8_mask: true
+dtype: bfloat16
+tokenizer:
+  source: /mnt/hdfs/user/hadoop-aipnlp/FMG/huangcanbin02/output/moe-merge-new/OLMoE-1B-7B-0125/math/full_bs-32_lr-2e-5-linear_epochs-2_liger_z2_packing
+chat_template: auto
+
